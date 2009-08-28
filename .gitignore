@@ -1,0 +1,9 @@
+.DS_Store
+config/*.sphinx.conf
+config/database.yml
+db/backup/**
+doc/api
+doc/app
+log/*
+tmp/*
+tmp/**/*

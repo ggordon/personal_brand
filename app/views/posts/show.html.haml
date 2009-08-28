@@ -1,0 +1,15 @@
+- title "Post"
+
+%p
+  %strong Name:
+  =h @post.name
+%p
+  %strong Body:
+  =h @post.body
+
+%p
+  = link_to "Edit", edit_post_path(@post)
+  |
+  = link_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", posts_path

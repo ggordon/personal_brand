@@ -1,0 +1,29 @@
+!label_width = 10em
+form.formtastic 
+  width: 500px
+  background-color: #eee
+  //margin: 10px
+  padding: 0px 5px
+    
+  fieldset 
+    legend
+      font-size: 1.4em
+      color: #999
+      padding-bottom: 0.5em
+      //span
+        //margin-top: -2em
+    ol li
+      //display: block
+      margin-bottom: 0.5em
+      label
+        width= !label_width
+        text-align: right
+        padding-right: 1em
+      &.string input, &.numeric input, &.text textarea
+        width: auto 
+    &.buttons
+      border: none
+      padding-left: #{!label_width + 1em}
+#project_form
+  //width: 650px
+    

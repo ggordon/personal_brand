@@ -2,11 +2,11 @@
 
 %table
   %tr
-    %th Name
+    %th Title
     %th Body
   - for post in @posts
     %tr
-      %td= h post.name
+      %td= h post.title
       %td= h post.body
       %td= link_to 'Show', post
       %td= link_to 'Edit', edit_post_path(post)

@@ -8,6 +8,7 @@ Feature: Resume
     Then I should see "Resume"
     And I should see "Gogo Gordon"
     And I should see "Watch Dog"
+    And resume exists
   
   
   

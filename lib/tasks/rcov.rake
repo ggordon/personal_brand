@@ -30,7 +30,7 @@ begin
     desc 'Run both tests and features.'
     task :all do
       Rake::Task["test"].invoke
-      Rake::Task["features"].invoke      
+      Rake::Task["cucumber"].invoke      
     end
   end
   

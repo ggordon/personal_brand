@@ -1,6 +1,11 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+
+  def setup
+    @post = Post.create(Post.valid_options)
+  end
+  
   context "index action" do
     should "render index template" do
       get :index
@@ -10,7 +15,7 @@ class PostsControllerTest < ActionController::TestCase
   
   context "show action" do
     should "render show template" do
-      get :show, :id => Post.first
+      get :show, :id => Post.first.id
       assert_template 'show'
     end
   end
@@ -31,36 +36,36 @@ class PostsControllerTest < ActionController::TestCase
     
     should "redirect when model is valid" do
       Post.any_instance.stubs(:valid?).returns(true)
-      post :create
+      post :create, :post => Post.valid_options
       assert_redirected_to post_url(assigns(:post))
     end
   end
   
   context "edit action" do
     should "render edit template" do
-      get :edit, :id => Post.first
+      get :edit, :id => Post.first.id
       assert_template 'edit'
     end
   end
   
   context "update action" do
-    should "render edit template when model is invalid" do
-      Post.any_instance.stubs(:valid?).returns(false)
-      put :update, :id => Post.first
-      assert_template 'edit'
-    end
-  
-    should "redirect when model is valid" do
-      Post.any_instance.stubs(:valid?).returns(true)
-      put :update, :id => Post.first
-      assert_redirected_to post_url(assigns(:post))
-    end
-  end
-  
+     should "render edit template when model is invalid" do
+       Post.any_instance.stubs(:valid?).returns(false)
+       put :update, :id => Post.first.id
+       assert_template 'edit'
+     end
+   
+     should "redirect when model is valid" do
+       Post.any_instance.stubs(:valid?).returns(true)
+       put :update, :id => Post.first.id 
+       assert_redirected_to post_url(assigns(:post))
+     end
+   end
+     
   context "destroy action" do
     should "destroy model and redirect to index action" do
       post = Post.first
-      delete :destroy, :id => post
+      delete :destroy, :id => post.id
       assert_redirected_to posts_url
       assert !Post.exists?(post.id)
     end

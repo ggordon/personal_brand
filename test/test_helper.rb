@@ -4,7 +4,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 #require 'mocha'
 
-# Webrat.configure do |config|
+#Webrat.configure do |config|
 #   config.mode = :rails
 # end
 

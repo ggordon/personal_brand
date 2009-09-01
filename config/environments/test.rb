@@ -27,19 +27,16 @@ config.action_mailer.delivery_method = :test
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
 
-config.gem 'test-unit',               :lib     => 'test/unit',
-                                      :version => '>=2.0.3'
+config.gem 'test-unit',               :lib     => 'test/unit'
+#config.gem 'mocha',                   :version => '>=0.9.7'
+config.gem 'thoughtbot-shoulda',      :lib     => 'shoulda'
 config.gem 'cucumber',                :version => '>=0.3.97'
-config.gem 'thoughtbot-shoulda',      :lib     => 'shoulda', 
-                                      :source  => 'http://gems.github.com',
-                                      :version => '>=2.10.2'
 config.gem 'webrat',                  :version => '>= 0.5.1'
 config.gem 'thoughtbot-factory_girl', :lib     => 'factory_girl',
                                       :source  => 'http://gems.github.com',
                                       :version => '>=1.2.2'
-config.gem 'mocha',                   :version => '>=0.9.7'
-config.gem 'nokogiri',                :version => '>=1.3.3'
-config.gem 'flay',                    :version => '>= 1.4.0'
-config.gem 'flog',                    :version => '>=2.2.0'  
-config.gem 'jscruggs-metric_fu',      :lib     => 'metric_fu',
-                                      :version => '>=1.1.5'
+#config.gem 'nokogiri',                :version => '>=1.3.3'
+#config.gem 'flay',                    :version => '>= 1.4.0'
+#config.gem 'flog',                    :version => '>=2.2.0'  
+#config.gem 'jscruggs-metric_fu',      :lib     => 'metric_fu',
+#                                      :version => '>=1.1.5'

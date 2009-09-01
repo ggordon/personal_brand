@@ -1,9 +1,12 @@
 .DS_Store
 config/*.sphinx.conf
 config/database.yml
+coverage
+coverage.data
 db/backup/**
 doc/api
 doc/app
 log/*
+scratch_directory
 tmp/*
 tmp/**/*

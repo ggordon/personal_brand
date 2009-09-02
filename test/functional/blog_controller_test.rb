@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class HomeControllerTest < ActionController::TestCase
+class BlogControllerTest < ActionController::TestCase
 
   def setup
   end

@@ -6,8 +6,7 @@ Feature: Home page
   Scenario: View the homepage
     When I go to the homepage
     Then I should be on the homepage
-    And I should see "Home Page"
-    And I should see "Posts"
+    And I should see "Blog"
   
   
   

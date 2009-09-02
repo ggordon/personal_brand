@@ -1,0 +1,30 @@
+h2. Personal Site
+
+This is the source code for my personal portfolio/blog site. I thought I'd release it as
+an example others can use and modify.
+
+h3. Installation
+
+h4. Environment
+# rails 2.3.3
+# mysql
+
+h4. Required Gems
+
+@sudo rake gems:install; sudo rake gems:install RAILS_ENV=test@
+
+# haml
+# compass
+
+h4. Setup
+
+
+
+h3. Testing
+
+* rake test:all    # runs units, functionals, and cucumber
+* rake rcov:all    # runs rcov using all the tests
+* rake metrics:all # runs the metric_fu suite of tests_
+
+
+h3. Other

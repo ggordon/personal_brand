@@ -1,6 +1,6 @@
 class PortfolioItemsController < ApplicationController
   def show
-    @portfolio_item = PortfolioItem.find(params[:id])
+    @portfolio_item = PortfolioItem.find_by_slug(params[:id])
   end
   
   def new
@@ -18,11 +18,11 @@ class PortfolioItemsController < ApplicationController
   end
   
   def edit
-    @portfolio_item = PortfolioItem.find(params[:id])
+    @portfolio_item = PortfolioItem.find_by_slug(params[:id])
   end
   
   def update
-    @portfolio_item = PortfolioItem.find(params[:id])
+    @portfolio_item = PortfolioItem.find_by_slug(params[:id])
     if @portfolio_item.update_attributes(params[:portfolio_item])
       flash[:notice] = "Successfully updated portfolio item."
       redirect_to @portfolio_item
@@ -32,7 +32,7 @@ class PortfolioItemsController < ApplicationController
   end
   
   def destroy
-    @portfolio_item = PortfolioItem.find(params[:id])
+    @portfolio_item = PortfolioItem.find_by_slug(params[:id])
     @portfolio_item.destroy
     flash[:notice] = "Successfully destroyed portfolio item."
     redirect_to root_url

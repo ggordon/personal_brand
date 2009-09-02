@@ -25,7 +25,6 @@ module TestData
     def valid_options
       {
         :title => "My Favorite Job",
-        :url   => "http://example.com",
         :body  => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod."
       }
     end

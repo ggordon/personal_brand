@@ -2,6 +2,7 @@ class CreatePortfolioItems < ActiveRecord::Migration
   def self.up
     create_table :portfolio_items do |t|
       t.string :title
+      t.string :slug
       t.string :url
       t.text :body
       t.date :start_date

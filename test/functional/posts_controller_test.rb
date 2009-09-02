@@ -15,7 +15,7 @@ class PostsControllerTest < ActionController::TestCase
   
   context "show action" do
     should "render show template" do
-      get :show, :id => Post.first.id
+      get :show, :id => @post.to_param
       assert_template 'show'
     end
   end
@@ -35,7 +35,6 @@ class PostsControllerTest < ActionController::TestCase
     end
     
     should "redirect when model is valid" do
-      Post.any_instance.stubs(:valid?).returns(true)
       post :create, :post => TestData::Post.valid_options
       assert_redirected_to post_url(assigns(:post))
     end
@@ -43,7 +42,7 @@ class PostsControllerTest < ActionController::TestCase
   
   context "edit action" do
     should "render edit template" do
-      get :edit, :id => Post.first.id
+      get :edit, :id => Post.first.to_param
       assert_template 'edit'
     end
   end
@@ -51,13 +50,13 @@ class PostsControllerTest < ActionController::TestCase
   context "update action" do
      should "render edit template when model is invalid" do
        Post.any_instance.stubs(:valid?).returns(false)
-       put :update, :id => Post.first.id
+       put :update, :id => Post.first.to_param
        assert_template 'edit'
      end
    
      should "redirect when model is valid" do
        Post.any_instance.stubs(:valid?).returns(true)
-       put :update, :id => Post.first.id 
+       put :update, :id => Post.first.to_param
        assert_redirected_to post_url(assigns(:post))
      end
    end
@@ -65,7 +64,7 @@ class PostsControllerTest < ActionController::TestCase
   context "destroy action" do
     should "destroy model and redirect to index action" do
       post = Post.first
-      delete :destroy, :id => post.id
+      delete :destroy, :id => post.to_param
       assert_redirected_to posts_url
       assert !Post.exists?(post.id)
     end

@@ -8,7 +8,7 @@ class PortfolioItemsControllerTest < ActionController::TestCase
   
   context "show action" do
     should "render show template" do
-      get :show, :id => PortfolioItem.first.id
+      get :show, :id => PortfolioItem.first.to_param
       assert_template 'show'
     end
   end
@@ -28,7 +28,6 @@ class PortfolioItemsControllerTest < ActionController::TestCase
     end
     
     should "redirect when model is valid" do
-      PortfolioItem.any_instance.stubs(:valid?).returns(true)
       post :create, :portfolio_item => TestData::PortfolioItem.valid_options
       assert_redirected_to portfolio_item_url(assigns(:portfolio_item))
     end
@@ -36,7 +35,7 @@ class PortfolioItemsControllerTest < ActionController::TestCase
   
   context "edit action" do
     should "render edit template" do
-      get :edit, :id => PortfolioItem.first.id
+      get :edit, :id => PortfolioItem.first.to_param
       assert_template 'edit'
     end
   end
@@ -44,13 +43,13 @@ class PortfolioItemsControllerTest < ActionController::TestCase
   context "update action" do
     should "render edit template when model is invalid" do
       PortfolioItem.any_instance.stubs(:valid?).returns(false)
-      put :update, :id => PortfolioItem.first.id
+      put :update, :id => PortfolioItem.first.to_param
       assert_template 'edit'
     end
   
     should "redirect when model is valid" do
       PortfolioItem.any_instance.stubs(:valid?).returns(true)
-      put :update, :id => PortfolioItem.first.id
+      put :update, :id => PortfolioItem.first.to_param
       assert_redirected_to portfolio_item_url(assigns(:portfolio_item))
     end
   end
@@ -58,7 +57,7 @@ class PortfolioItemsControllerTest < ActionController::TestCase
   context "destroy action" do
     should "destroy model and redirect to index action" do
       portfolio_item = PortfolioItem.first
-      delete :destroy, :id => portfolio_item.id
+      delete :destroy, :id => portfolio_item.to_param
       assert_redirected_to root_url
       assert !PortfolioItem.exists?(portfolio_item.id)
     end

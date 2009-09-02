@@ -12,7 +12,10 @@ module NavigationHelpers
       '/'
     when /the resume page/
       '/resume'
-      
+    when /the contact page/
+      '/contact'
+    when /the about page/
+      '/about'
     # Add more mappings here.
     # Here is a more fancy example:
     #

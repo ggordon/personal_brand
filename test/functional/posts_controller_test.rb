@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class PostsControllerTest < ActionController::TestCase
 
   def setup
-    @post = Post.create(Post.valid_options)
+    @post = Post.create(TestData::Post.valid_options)
   end
   
   context "index action" do
@@ -36,7 +36,7 @@ class PostsControllerTest < ActionController::TestCase
     
     should "redirect when model is valid" do
       Post.any_instance.stubs(:valid?).returns(true)
-      post :create, :post => Post.valid_options
+      post :create, :post => TestData::Post.valid_options
       assert_redirected_to post_url(assigns(:post))
     end
   end

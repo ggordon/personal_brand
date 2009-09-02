@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090901193124) do
+ActiveRecord::Schema.define(:version => 20090902121608) do
+
+  create_table "portfolio_items", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "body"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"

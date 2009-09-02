@@ -1,0 +1,9 @@
+- title "Portfolio Item"
+
+= render @portfolio_item
+
+%p
+  = link_to "Edit", edit_portfolio_item_path(@portfolio_item)
+  |
+  = link_to "Destroy", @portfolio_item, :confirm => 'Are you sure?', :method => :delete
+  |

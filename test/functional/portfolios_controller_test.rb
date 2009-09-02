@@ -1,13 +1,9 @@
 require File.join(File.dirname(__FILE__), "..", "test_helper.rb")
 
-class ResumesControllerTest < ActionController::TestCase
-  def setup
-    @resume = Resume.create(TestData::Resume.valid_options)
-  end
-  
+class PortfoliosControllerTest < ActionController::TestCase
   context "show action" do
     should "render show template" do
-      get :show, :id => Resume.first.id
+      get :show
       assert_template 'show'
     end
   end

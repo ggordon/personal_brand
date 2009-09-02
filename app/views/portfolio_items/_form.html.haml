@@ -1,0 +1,8 @@
+- semantic_form_for @portfolio_item, :html => { :class => 'x-ujs', :id => 'portfolio_item_form' } do |portfolio_item_form|
+  = portfolio_item_form.error_messages
+  - portfolio_item_form.inputs :name => "portfolio_item" do
+    = portfolio_item_form.input :title
+    = portfolio_item_form.input :url
+    = portfolio_item_form.input :body
+  - portfolio_item_form.buttons do
+    = portfolio_item_form.submit "Submit"

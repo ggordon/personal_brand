@@ -2,12 +2,14 @@
 @import partials/base.sass
 
 @import blueprint
+@import compass/layout.sass
 @import compass/utilities.sass
 /*@import blueprint/modules/scaffolding.sass*/
 
 @import partials/errors.sass
 @import partials/formtastic.sass
 @import partials/formtastic_changes.sass
+@import partials/utilities.sass
 
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
 // +blueprint
@@ -19,15 +21,24 @@
 body.bp
   #container
     +container
-  #header, #footer
+  #header
     +column(!blueprint_grid_columns)
-    background-color: #eee
+    background-color: #def
     h1
-      +span(!half_width)
       display: inline-block
+      float: right
       padding-top: 10px
+      text-align: right
+      font-style: italic
+  #header
+    border-bottom: 1px solid #999
+  #footer
+    +column(!blueprint_grid_columns)
+    height: 24px
+    background-color: #def
+
   #nav-bar
-    float: right
+    float: left
     
   #content
     !content_columns = ceil(2 * !blueprint_grid_columns / 3)
@@ -40,5 +51,20 @@ body.bp
     
   .nav-list
     +horizontal-list()
-    font-size: 1.5em
-    
+    font-size: 2.0em
+    padding-top: 20px
+    margin-bottom: -1px
+    li
+      +border-top-radius(15px)
+      background-color: #eee
+      border: 1px solid #fff
+      border-bottom: none
+      padding: 5px 10px 0 10px
+      &:hover
+        background-color= !highlight_color
+    li.active
+      border: 1px solid #999
+      border-bottom: 1px solid #fff
+      background-color: #fff      
+    a
+      text-decoration: none

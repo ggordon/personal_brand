@@ -1,11 +1,9 @@
-// This import applies a global reset to any page that imports this stylesheet.
 @import blueprint/reset.sass
-// To configure blueprint, edit the partials/base.sass file.
 @import partials/base.sass
-// Import all the default blueprint modules so that we can access their mixins.
+
 @import blueprint
-// Import the non-default scaffolding module.
-@import blueprint/modules/scaffolding.sass
+@import compass/utilities.sass
+/*@import blueprint/modules/scaffolding.sass*/
 
 @import partials/errors.sass
 @import partials/formtastic.sass
@@ -14,26 +12,33 @@
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
 // +blueprint
 
-//Recommended Blueprint configuration with scoping and semantic layout:
 +blueprint-typography("body.bp")
 
-// Page layout can be done using mixins applied to your semantic classes and IDs:
+!half_width = !blueprint_grid_columns / 2
+
 body.bp
   #container
     +container
   #header, #footer
     +column(!blueprint_grid_columns)
     background-color: #eee
-  #sidebar
-    // 1/4 of the grid columns, rounding down. With 24 cols, this is 6.
-    !sidebar_columns = floor(!blueprint_grid_columns / 4)
-    +column(!sidebar_columns)
-    background-color: #cde
+    h1
+      +span(!half_width)
+      display: inline-block
+      padding-top: 10px
+  #nav-bar
+    float: right
+    
   #content
-    // 3/4 of the grid columns, rounding up.
-    // With 24 cols, this is 18.
-    !content_columns = ceil(3 * !blueprint_grid_columns / 4)
-    // true means it's the last column in the row
-    +column(!content_columns, true)
-    background-color: #fff
-    padding: 10px 0
+    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
+    +column(!content_columns)
+    background-color: #ffe
+  #sidebar
+    !sidebar_columns = floor(!blueprint_grid_columns / 3)
+    +column(!sidebar_columns, true)
+    background-color: #cde
+    
+  .nav-list
+    +horizontal-list()
+    font-size: 1.5em
+    

@@ -18,6 +18,13 @@ h4. Required Gems
 
 h4. Setup
 
+Admin username and password is stored in an env. variable. (Didn't think it wise to store it
+in a public project on github!)
+
+To set locally:
+
+To set on heroku:
+
 
 
 h3. Testing
@@ -27,4 +34,9 @@ h3. Testing
 * rake metrics:all # runs the metric_fu suite of tests_
 
 
-h3. Other
+h3. Todo
+
+* Image uploading - remove the static images, add uploading with paperclip/s3
+* PDF generation - automatically generate the PDF for the resume
+
+

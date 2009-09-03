@@ -1,7 +1,7 @@
 !!! Strict
 %html{html_attrs}
   %head
-    %title= h(yield(:title) || "Untitled")
+    %title= h(@page_title || "#{APP_CONFIG['title']} - Untitled")
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
@@ -16,15 +16,9 @@
       = render 'shared/header'
       #content
         - flash.each do |name, msg| 
-          = content_tag :div, msg, :id => "flash_#{name}" 
-      
-        - if show_title? 
-          %h2=h yield(:heading) 
-      
+          = content_tag :div, msg, :id => "flash_#{name}"       
         = yield
       #sidebar
         info
-      #footer
-        copyright
         
 

@@ -3,14 +3,17 @@
 # to do so you may need to add this line to your ApplicationController
 #   helper :layout
 module LayoutHelper
-  def title(page_title, show_title = true)
-    @content_for_title = "#{APP_CONFIG['title']} - #{page_title.to_s}"
-    @content_for_heading = page_title.to_s
-    @show_title = show_title
+  def title(str, container = nil)
+    @page_title = "#{APP_CONFIG['title']} - #{str}" if str
+    content_tag(container, str) if container
   end
   
   def show_title?
     @show_title
+  end
+  
+  def selected_tab?(tabname)
+    (tabname == @selected_tab) ? 'active' : ''
   end
   
 end

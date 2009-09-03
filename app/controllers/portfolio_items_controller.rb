@@ -1,4 +1,6 @@
 class PortfolioItemsController < ApplicationController
+  before_filter { |page| page.set_selected_nav_tab :portfolio }
+  
   def show
     @portfolio_item = PortfolioItem.find_by_slug(params[:id])
   end

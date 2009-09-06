@@ -11,4 +11,8 @@ class Post < ActiveRecord::Base
     slug
   end
   
+  def created_date
+    created_at.strftime("%b %d, %Y")
+  end
+
 end

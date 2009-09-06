@@ -1,6 +1,5 @@
 @import blueprint/reset.sass
 
-@import partials/theme.sass
 @import partials/base.sass
 
 @import blueprint
@@ -21,54 +20,72 @@
 !half_width = !blueprint_grid_columns / 2
 
 body.bp
+  background-color= !bg_color
   h1, h2, h3, h4, h5, h6
-    color= !light_base_color
+    //color= #444
   #container
     +container
   #header
     +column(!blueprint_grid_columns)
-    background-color: #fff
+    //background-color: #fff
     h1
       display: inline-block
       float: right
       padding-top: 10px
       text-align: right
       font-style: italic
-      font-size: 2.25em
+      font-size: 1.2em
   #header
-    border-bottom= 1px "solid" !base_color
-
+    border-bottom= 1px "solid" !heading_color
+    margin-bottom: 0.5em
   #nav-bar
     float: left
     
   #content
-    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
-    +column(!content_columns)
-    background-color: #ffe
-  #sidebar
-    margin-top: 10px
-    !sidebar_columns = floor(!blueprint_grid_columns / 3)
-    +column(!sidebar_columns, true)
-    background-color: #fff
+    +column(!blueprint_grid_columns)
     
   .nav-list
     +horizontal-list()
-    font-size: 1.5em
+    font-size: 1.2em
     font-weight: bold
-    padding-top: 18px
+    padding-top: 9px
     margin-bottom: -1px
-    margin-left: 10px
     li
-      +border-top-radius(15px)
-      background-color= !lightest_base_color
-      border: 1px solid #fff
+      +border-top-radius(5px)
+      background-color= !bg_color - #111
+      border= 1px "solid" !heading_color
       border-bottom: none
-      padding: 5px 10px 0 10px
+      padding: 0px 10px
+      margin-left: 5px
       &:hover
-        background-color= !light_complementary_color
+        background-color= !bg_color
+        //border= 1px "solid" !font_color
     li.active
-      border= 1px "solid" !base_color 
-      border-bottom: 1px solid #fff
-      background-color: #fff      
+      color= !header_color
+      border= 1px "solid" !heading_color 
+      border-bottom= 1px "solid" !bg_color
+      background-color= !bg_color      
+      &:hover
+        background-color= !bg_color
+        //border= 1px "solid" !bg_color
     a
       text-decoration: none
+
+.post
+  .column(20)
+  +clearfix
+  .date
+    +column(3)
+    text-align: right
+    color= !heading_color
+    margin-top: 0.9em
+    font-size: 1.1em
+
+  .contents
+    +column(17, true)
+    .title
+      a
+        color= !header_color
+        text-decoration: none
+    .body
+  

@@ -10,3 +10,4 @@ log/*
 scratch_directory
 tmp/*
 tmp/**/*
+public/stylesheets/compiled/*

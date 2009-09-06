@@ -1,2 +1,10 @@
-= post.title
-= post.body
+%div[post]
+  .date= post.created_date
+
+  .contents
+    .title
+      %h2= link_to post.title, post_path(post)
+    .body
+      = post.body
+      
+    =link_to "edit", edit_post_path(post)

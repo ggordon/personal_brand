@@ -12,7 +12,11 @@ module NavigationHelpers
       '/'
     when /the blog page/
       '/'
-
+    when /the sign in page/
+      '/signin'
+    when /the sign out page/
+      '/signout'
+      
     # resume
     when /the resume page/
       '/resume'

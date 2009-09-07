@@ -4,9 +4,9 @@ class CreatePortfolioItems < ActiveRecord::Migration
       t.string :title
       t.string :slug
       t.string :url
-      t.text :body
-      t.date :start_date
-      t.date :end_date
+      t.text   :body
+      t.date   :start_date
+      t.date   :end_date
       
       t.timestamps
     end

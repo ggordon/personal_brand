@@ -6,5 +6,6 @@
       %h2= link_to post.title, post_path(post)
     .body
       = post.body
-      
-    =link_to "edit", edit_post_path(post)
+    
+    - if admin?
+      =link_to "edit", edit_post_path(post)

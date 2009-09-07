@@ -1,0 +1,12 @@
+= title "Admin sign in", :h3
+
+- form_tag sessions_path do
+  = label_tag "username"
+  = text_field_tag :username
+  %br
+  = label_tag "password"
+  = password_field_tag :password
+  %br
+  = submit_tag "Submit"
+
+

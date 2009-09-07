@@ -15,4 +15,7 @@ ActionController::Routing::Routes.draw do |map|
     pages.connect '/pages/:id'
   end
 
+  map.signin '/signin',   :controller => :sessions, :action => :new
+  map.signout '/signout', :controller => :sessions, :action => :destroy
+  map.resources :sessions, :only => 'create'
 end

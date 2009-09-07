@@ -4,12 +4,14 @@ Feature: Posts
   I want to create a post
   
   Scenario: new post page
-    Given I am on the blog page
-    When I follow "new post"
+    Given I sign in as an admin
+    And I am on the blog page
+    When I follow "New Post"
     Then I should be on the new post page
 
   Scenario: create and edit a post
-    Given I am on the new post page
+    Given I sign in as an admin
+    And I am on the new post page
     When I fill in "title" with "First Post"
     And I fill in "body" with "loren ipsum"
     And I press "Create"

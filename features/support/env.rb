@@ -1,5 +1,10 @@
 # Sets up the Rails environment for Cucumber
 ENV["RAILS_ENV"] ||= "test"
+
+# username/password for testing
+ENV['PB_USERNAME'] = 'admin'
+ENV['PB_PASSWORD'] = 'passwd'
+
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/rails/world'
 

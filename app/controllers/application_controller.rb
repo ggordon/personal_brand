@@ -14,4 +14,35 @@ class ApplicationController < ActionController::Base
     @selected_tab = tabname
   end
   
+  def admin_required
+    admin_signed_in?
+  end
+  
+  def admin_signed_in?
+    #session['admin']
+  end
+  helper_method :admin?
+  
+  
+protected
+
+  
+  def admin?
+    session['admin']
+  end
+
+  def set_admin
+    session['admin'] = 'junk-value'
+  end
+
+  def unset_admin
+    reset_session
+  end
+
+  def authenticated
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['PB_USERNAME'] && password == ENV['PB_PASSWORD']
+    end
+  end
+  
 end

@@ -1,5 +1,4 @@
 chriseppstein-compass   -v '0.8.14' -s 'gems.github.com'
 justinfrench-formtastic -v '0.2.2'  -s 'gems.github.com'
-norman-disqus           -v '1.0.1'  -s 'gems.github.com'
 mislav-will_paginate    -v '2.3.11' -s 'gems.github.com'
  

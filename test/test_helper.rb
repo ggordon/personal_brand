@@ -8,6 +8,10 @@ require 'test_help'
 #   config.mode = :rails
 # end
 
+# Username/password for tests
+ENV['PB_USERNAME'] = 'admin'
+ENV['PB_PASSWORD'] = 'passwd'
+
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the

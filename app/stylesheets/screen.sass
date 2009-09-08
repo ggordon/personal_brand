@@ -152,4 +152,15 @@ body.bp
       //display: inline
       float: right
       color= !heading_color
-    
+  
+.page
+  +column(14, true)
+  +prepend(3)
+  +append(3)
+  ul.plain
+    list-style-type: none
+
+.code
+  font-family: Courier
+  padding-left: 40px
+  color= !link_color

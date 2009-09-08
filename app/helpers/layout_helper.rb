@@ -8,10 +8,6 @@ module LayoutHelper
     content_tag(container, str) if container
   end
   
-  def show_title?
-    @show_title
-  end
-  
   def selected_tab?(tabname)
     (tabname == @selected_tab) ? 'active' : ''
   end

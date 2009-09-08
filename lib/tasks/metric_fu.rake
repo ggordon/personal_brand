@@ -7,7 +7,7 @@ begin
     config.graphs   = [:flog, :flay, :reek, :roodi, :rcov]
     config.flay     = { :dirs_to_flay => ['app', 'lib']  } 
     config.flog     = { :dirs_to_flog => ['app', 'lib']  }
-    config.reek     = { :dirs_to_reek => ['app', 'lib']  }
+    config.reek     = { :dirs_to_reek => ['app/models', 'lib']  }
     config.roodi    = { :dirs_to_roodi => ['app', 'lib'] }
     config.saikuro  = { :output_directory => 'scratch_directory/saikuro', 
                         :input_directory => ['app', 'lib'],

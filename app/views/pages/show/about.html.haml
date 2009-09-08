@@ -1,1 +1,50 @@
-= title "About the Site", :h2
+- title "About..."
+.page
+  %h2 about me...
+  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  %h3 contact info
+  %ul.plain
+    %li
+      Email:
+      = mail_to "gfgordon@gmail.com" 
+    %li 
+      Twitter:
+      = link_to "garygordon", "http://twitter.com/garygordon"
+    
+  %h2 about the site...
+  
+  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+  %h3 setup
+  
+  %ul.plain
+    %li Rails, of course, I'm using the current latest, 2.3.4
+    %li a database, create and configure 'config/database.yml' with the database information. (I'm planning on deploying with Heroku, they use PostgreSQL 8.3.5)
+    %li
+      gems- 
+      .code rake gems:install
+      will install haml and compass, in the unlikely event you're not already using them.
+      
+    %li 
+      admin username and password are stored in environment variables, didn't think it wise to store that on github.
+      .code export PB_USERNAME=admin
+      .code export PB_PASSWORD=password
+      to deploy on heroku
+      .code heroku config:add PB_USERNAME=admin PB_PASSWORD=password
+      
+        
+
+  %h3 testing
+  %ul
+    %li
+      using test-unit, shoulda, cucumber, metrics_fu
+      .code rake gems:install RAILS_ENV=test
+      will install the gems test-unit, mocha, thoughtbot-shoulda, cucumber, webrat, thoughtbot-factory_girl
+    %li
+      running tests
+      .code rake test:all
+      .code rake metrics:all
+  
+  %h3 source code                     
+                                        
+                         

@@ -9,7 +9,7 @@ class PagesControllerTest < ActionController::TestCase
       assert_response 404
     end
     
-    %w(about contact).each do |page|
+    %w(about).each do |page|
       should "render #{page} template" do
         get :show, :id => "#{page}"
         assert_response :success

@@ -3,7 +3,6 @@
     %li{:class => selected_tab?(:blog)}= link_to_unless_current "Blog", root_path
     %li{:class => selected_tab?(:portfolio)}= link_to_unless_current "Portfolio", portfolio_path
     %li{:class => selected_tab?(:resume)}= link_to_unless_current "Resume", resume_path
-    %li{:class => selected_tab?(:contact)}= link_to_unless_current "Contact", '/contact'
     %li{:class => selected_tab?(:about)}= link_to_unless_current "About", '/about'
     - if admin?
       %li= link_to "Sign out", signout_path

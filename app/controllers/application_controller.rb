@@ -15,12 +15,13 @@ class ApplicationController < ActionController::Base
   end
   
   def admin_required
-    admin_signed_in?
+    unless admin? 
+      flash[:error] = "Only an admin is required to acces that."
+      redirect_to signin_path
+      return false
+    end
   end
   
-  def admin_signed_in?
-    #session['admin']
-  end
   helper_method :admin?
   
   
@@ -32,17 +33,13 @@ protected
   end
 
   def set_admin
-    session['admin'] = 'junk-value'
+    session['admin'] = 'authenticated'
   end
 
   def unset_admin
     reset_session
   end
 
-  def authenticated
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV['PB_USERNAME'] && password == ENV['PB_PASSWORD']
-    end
-  end
+
   
 end

@@ -4,6 +4,7 @@ config/database.yml
 coverage
 coverage.data
 db/backup/**
+db/seeds.rb
 doc/api
 doc/app
 log/*

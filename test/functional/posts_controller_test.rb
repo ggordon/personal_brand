@@ -6,10 +6,14 @@ class PostsControllerTest < ActionController::TestCase
     @post = Post.create(TestData::Post.valid_options)
   end
   
+  def authenticate
+    session['admin'] = 'authenticated'
+  end
+  
   context "index action" do
     should "render index template" do
       get :index
-      assert_template 'index'
+      assert_redirected_to signin_url
     end
   end
   
@@ -23,11 +27,86 @@ class PostsControllerTest < ActionController::TestCase
   context "new action" do
     should "render new template" do
       get :new
-      assert_template 'new'
+      assert_redirected_to signin_url
     end
   end
   
   context "create action" do
+    should "render new template when model is invalid" do
+      Post.any_instance.stubs(:valid?).returns(false)
+      post :create
+      assert_redirected_to signin_url
+    end
+    
+    should "redirect when model is valid" do
+      post :create, :post => TestData::Post.valid_options
+      assert_redirected_to signin_url
+    end
+  end
+  
+  context "edit action" do
+    should "render edit template" do
+      get :edit, :id => Post.first.to_param
+      assert_redirected_to signin_url
+    end
+  end
+  
+  context "update action" do
+     should "render edit template when model is invalid" do
+       Post.any_instance.stubs(:valid?).returns(false)
+       put :update, :id => Post.first.to_param
+       assert_redirected_to signin_url
+     end
+   
+     should "redirect when model is valid" do
+       Post.any_instance.stubs(:valid?).returns(true)
+       put :update, :id => Post.first.to_param
+       assert_redirected_to signin_url
+     end
+   end
+     
+  context "destroy action" do
+    should "destroy model and redirect to index action" do
+      post = Post.first
+      delete :destroy, :id => post.to_param
+      assert_redirected_to signin_url
+    end
+  end
+
+  context "index action for admin" do
+    setup do
+      authenticate
+      get :index
+    end
+    should "render index template" do
+      assert_template 'index'
+    end
+  end
+  
+  context "show action for admin" do
+    setup do
+      authenticate
+      get :show, :id => @post.to_param
+    end
+    should "render show template" do
+      assert_template 'show'
+    end
+  end
+  
+  context "new action for admin" do
+    setup do
+      authenticate
+      get :new
+    end
+    should "render new template" do
+      assert_template 'new'
+    end
+  end
+  
+  context "create action for admin" do
+    setup do
+      authenticate
+    end
     should "render new template when model is invalid" do
       Post.any_instance.stubs(:valid?).returns(false)
       post :create
@@ -40,14 +119,20 @@ class PostsControllerTest < ActionController::TestCase
     end
   end
   
-  context "edit action" do
-    should "render edit template" do
+  context "edit action for admin" do
+    setup do
+      authenticate
       get :edit, :id => Post.first.to_param
+    end
+    should "render edit template" do
       assert_template 'edit'
     end
   end
   
-  context "update action" do
+  context "update action for admin" do
+    setup do
+      authenticate
+    end
      should "render edit template when model is invalid" do
        Post.any_instance.stubs(:valid?).returns(false)
        put :update, :id => Post.first.to_param
@@ -61,12 +146,16 @@ class PostsControllerTest < ActionController::TestCase
      end
    end
      
-  context "destroy action" do
+  context "destroy action for admin" do
+    setup do
+      authenticate
+      @post = Post.first
+      delete :destroy, :id => @post.to_param
+    end
     should "destroy model and redirect to index action" do
-      post = Post.first
-      delete :destroy, :id => post.to_param
       assert_redirected_to posts_url
-      assert !Post.exists?(post.id)
+      assert !Post.exists?(@post.id)
     end
   end
+
 end

@@ -1,9 +1,13 @@
 %div[resume]
-  %p
-    %strong Name:
-    =h resume.name
-  %p
-    %strong Job Title:
-    =h resume.job_title
+  .name= resume.name
+  .job_title= resume.job_title
+  
+  
+  .section skills
+  .skills= resume.skills
 
-  %p
+  .section relevant recent experience
+  = render resume.work_experiences
+
+  .section education
+  = render resume.education_items

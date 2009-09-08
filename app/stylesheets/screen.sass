@@ -89,3 +89,67 @@ body.bp
         text-decoration: none
     .body
   
+.portfolio_item
+  +column(14, true)
+  +prepend(3)
+  +append(3)
+  margin-top: 1em
+  margin-bottom: 1em
+  .title
+    font-size: 14pt
+    font-weight: bold
+    padding-bottom: 6pt
+  .image
+    +column(8)
+    //border= 10px "solid" #fff
+  .body
+    +column(5.5, true)
+    +prepend(0.5)
+    
+.resume
+  +column(14, true)
+  +prepend(3)
+  +append(3)
+  font-size: 10pt
+  padding-top: 2em
+  padding-bottom: 2em
+  .name
+    font-size: 18pt
+    font-weight: bold
+  .job_title
+    font-size: 12pt
+    color= !header_color
+  .name, .job_title
+    text-align: center
+    padding-bottom: 6pt  
+
+  .section
+    color= !heading_color
+    text-align: center
+    border-bottom= 1px "solid" !heading_color
+    margin-top: 6pt
+    margin-bottom: 6pt
+    
+  .work_experience
+    .title
+      display: inline
+      font-weight: bold
+      color= !header_color
+    .date
+      //display: inline
+      float: right
+      color= !heading_color
+    .body
+      padding: 6pt 0
+      
+  .education_item
+    font-size: 9.5pt
+    .title
+      display: inline
+      font-weight: bold
+      color= !header_color
+    .date
+      //display: inline
+      float: right
+      color= !heading_color
+    

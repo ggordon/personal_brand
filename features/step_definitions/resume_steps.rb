@@ -3,7 +3,7 @@ Given /^A resume exists$/ do
 end
 
 Then /^resume exists$/ do
-  selector = 'div.resume p'
+  selector = 'div.resume div.name'
   doc = Nokogiri::HTML.parse(response.body)
   assert_match doc.css(selector).first, /Gogo Gordon/  
 end

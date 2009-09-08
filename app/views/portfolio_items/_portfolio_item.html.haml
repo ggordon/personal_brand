@@ -1,0 +1,8 @@
+%div[portfolio_item]
+  .title
+    - if portfolio_item.url 
+      = link_to portfolio_item.title, portfolio_item.url
+    -else
+      = portfolio_item.title
+  .image= image_tag portfolio_item.image_path
+  .body= portfolio_item.body

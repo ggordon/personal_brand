@@ -1,0 +1,5 @@
+%div[work_experience]
+  .title= work_experience.title
+  - end_date = work_experience.end_date ? "#{work_experience.end_date.mon}/#{work_experience.end_date.year}" : "present"
+  .date= "#{work_experience.start_date.mon}/#{work_experience.start_date.year}..#{end_date}"
+  .body= work_experience.body

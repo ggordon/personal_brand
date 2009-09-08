@@ -11,13 +11,18 @@
 
 ActiveRecord::Schema.define(:version => 20090902121608) do
 
+  create_table "education_items", :force => true do |t|
+    t.integer "resume_id"
+    t.string  "title"
+    t.date    "end_date"
+  end
+
   create_table "portfolio_items", :force => true do |t|
     t.string   "title"
     t.string   "slug"
     t.string   "url"
+    t.string   "image"
     t.text     "body"
-    t.date     "start_date"
-    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20090902121608) do
     t.string   "title"
     t.text     "body"
     t.string   "slug"
-    t.integer  "thread_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,8 +38,17 @@ ActiveRecord::Schema.define(:version => 20090902121608) do
   create_table "resumes", :force => true do |t|
     t.string   "name"
     t.string   "job_title"
+    t.string   "skills"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "work_experiences", :force => true do |t|
+    t.integer "resume_id"
+    t.string  "title"
+    t.date    "start_date"
+    t.date    "end_date"
+    t.text    "body"
   end
 
 end

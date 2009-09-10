@@ -1,7 +1,8 @@
 - title "About..."
 .page
   %h2 about me...
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  %p 
+    I'm a web application developer that's been focusing on Ruby on Rails for the last 3+ years.
   %h3 contact info
   %ul.plain
     %li
@@ -9,15 +10,21 @@
       = mail_to "gfgordon@gmail.com" 
     %li 
       Twitter:
-      = link_to "garygordon", "http://twitter.com/garygordon"
+      = link_to "http://twitter.com/garygordon"
+    %li
+      Github:
+      =link_to "http://github.com/ggordon"
     
   %h2 about the site...
   
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  %p 
+    This is just a simple blog (not that I have much to say) and portfolio site. Written in 
+    Ruby on Rails, the source is freely available to examine or modify on 
+    =link_to "github.", "http://github.com/ggordon/personal_brand/tree/master"  
 
   %h3 setup
   
-  %ul.plain
+  %ul
     %li Rails, of course, I'm using the current latest, 2.3.4
     %li a database, create and configure 'config/database.yml' with the database information. (I'm planning on deploying with Heroku, they use PostgreSQL 8.3.5)
     %li
@@ -35,7 +42,7 @@
         
 
   %h3 testing
-  %ul
+  %ol
     %li
       using test-unit, shoulda, cucumber, metrics_fu
       .code rake gems:install RAILS_ENV=test
@@ -45,6 +52,6 @@
       .code rake test:all
       .code rake metrics:all
   
-  %h3 source code                     
+                    
                                         
                          

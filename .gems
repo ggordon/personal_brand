@@ -1,4 +1,5 @@
-chriseppstein-compass   -v '0.8.14' -s 'gems.github.com'
-justinfrench-formtastic -v '0.2.2'  -s 'gems.github.com'
-mislav-will_paginate    -v '2.3.11' -s 'gems.github.com'
+chriseppstein-compass        -s 'gems.github.com'
+chriseppstein-compass-colors -s 'gems.github.com'
+justinfrench-formtastic      -s 'gems.github.com'
+mislav-will_paginate         -s 'gems.github.com'
  

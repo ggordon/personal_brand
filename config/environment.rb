@@ -8,10 +8,10 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   
-  config.gem "justinfrench-formtastic", :lib => 'formtastic', :source => 'http://gems.github.com'
-  config.gem "haml"
-  config.gem 'chriseppstein-compass', :lib => 'compass', :source => 'git://github.com/chriseppstein/compass.git'
-  config.gem 'chriseppstein-compass-colors', :lib => 'compass-colors', :source => 'git://github.com/chriseppstein/compass-colors.git'
+# config.gem "justinfrench-formtastic", :lib => 'formtastic', :source => 'http://gems.github.com'
+config.gem "haml"
+# config.gem 'chriseppstein-compass', :lib => 'compass', :source => 'git://github.com/chriseppstein/compass.git'
+# config.gem 'chriseppstein-compass-colors', :lib => 'compass-colors', :source => 'git://github.com/chriseppstein/compass-colors.git'
   #config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source  => 'http://gems.github.com'
 
   config.time_zone = 'UTC'

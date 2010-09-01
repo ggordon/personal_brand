@@ -31,6 +31,7 @@ config.gem 'test-unit',               :lib     => 'test/unit'
 config.gem 'mocha',                   :version => '>=0.9.7'
 config.gem 'shoulda',      :lib     => 'shoulda'
 config.gem 'formtastic'
+config.gem 'permalink'
 config.gem 'cucumber',                :version => '>=0.3.97'
 config.gem 'webrat',                  :version => '>= 0.5.1'
 config.gem 'factory_girl', :lib     => 'factory_girl',

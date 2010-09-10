@@ -1,3 +1,4 @@
+*.swp
 .DS_Store
 config/*.sphinx.conf
 config/database.yml
@@ -5,6 +6,7 @@ coverage
 coverage.data
 db/backup/**
 db/seeds.rb
+db/*.sqlite3
 doc/api
 doc/app
 log/*

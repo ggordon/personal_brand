@@ -37,8 +37,3 @@ config.gem 'webrat',                  :version => '>= 0.5.1'
 config.gem 'factory_girl', :lib     => 'factory_girl',
                                       :source  => 'http://gems.github.com',
                                       :version => '>=1.2.2'
-#config.gem 'nokogiri',                :version => '>=1.3.3'
-#config.gem 'flay',                    :version => '>= 1.4.0'
-#config.gem 'flog',                    :version => '>=2.2.0'  
-#config.gem 'jscruggs-metric_fu',      :lib     => 'metric_fu',
-#                                      :version => '>=1.1.5'

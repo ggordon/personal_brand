@@ -6,7 +6,7 @@ class SessionsControllerTest < ActionController::TestCase
     setup do
       get :new
     end
-    should_render_template :new
+    should render_template :new
   end
   
   context "bad password" do
@@ -14,23 +14,23 @@ class SessionsControllerTest < ActionController::TestCase
       post :create, :password => 'junk', :username => 'junk'      
     end
     
-    should_redirect_to("the signin page") { signin_url }
-    should_set_the_flash_to /Bad username or password./i
+    should redirect_to("the signin page") { signin_url }
+    should set_the_flash #/Bad username or password./i
   end
   
   context "good password" do
     setup do
       post :create, :password => 'passwd', :username => 'admin'      
     end
-    should_redirect_to("the root path") { root_url }
-    should_set_the_flash_to /Successfully signed in as admin./i
+    should redirect_to("the root path") { root_url }
+    should set_the_flash #/Successfully signed in as admin./i
   end
   
   context "destroy action" do
     setup do
       delete :destroy      
     end
-    should_redirect_to("the root path") { root_url }
-    should_set_the_flash_to /Successfully signed out as admin./i
+    should redirect_to("the root path") { root_url }
+    should set_the_flash #/Successfully signed out as admin./i
   end
 end

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   
   def admin_required
     unless admin? 
-      flash[:error] = "Only an admin is required to acces that."
+      flash[:error] = "Only an admin is required to access that."
       redirect_to signin_path
       return false
     end

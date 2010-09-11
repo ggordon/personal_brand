@@ -6,8 +6,8 @@ an example others can use and modify.
 h3. Installation
 
 h4. Environment
-# rails 2.3.3
-# mysql
+# rails 2.3.8
+# mysql or postgresql
 
 h4. Required Gems
 

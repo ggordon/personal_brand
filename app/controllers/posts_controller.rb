@@ -1,7 +1,17 @@
 class PostsController < ApplicationController
-
   before_filter { |page| page.set_selected_nav_tab :blog }
   before_filter :admin_required, :except => [:show]
+  def index
+    @posts = Post.all
+  end
+  
+  def show
+    @post = Post.find_by_slug(params[:id])
+  end
+  
+  def new
+    @post = Post.new
+  end
   
   def create
     @post = Post.new(params[:post])
@@ -14,23 +24,11 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @post = Post.find(params[:id])
-  end
-  
-  def index
-    @posts = Post.all
-  end
-  
-  def show
-    @post = Post.find(params[:id])
-  end
-  
-  def new
-    @post = Post.new
+    @post = Post.find_by_slug(params[:id])
   end
   
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     if @post.update_attributes(params[:post])
       flash[:notice] = "Successfully updated post."
       redirect_to posts_url
@@ -40,7 +38,7 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     @post.destroy
     flash[:notice] = "Successfully destroyed post."
     redirect_to posts_url

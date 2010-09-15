@@ -3,9 +3,9 @@
 
   .contents
     .title
-      %h2= link_to post.title, post_path(post.id)
+      %h2= link_to post.title, post_path(post)
     .body
       = post.body
     
     - if admin?
-      =link_to "edit", edit_post_path(post.id)
+      =link_to "edit", edit_post_path(post)

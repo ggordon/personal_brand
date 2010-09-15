@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class PostsControllerTest < ActionController::TestCase
 
   def setup
-    @post = Factory.create(:post)
+    @post = Post.create(TestData::Post.valid_options)
   end
   
   def authenticate
@@ -19,7 +19,7 @@ class PostsControllerTest < ActionController::TestCase
   
   context "show action" do
     should "render show template" do
-      get :show, :id => @post.id
+      get :show, :id => @post.to_param
       assert_template 'show'
     end
   end
@@ -46,7 +46,7 @@ class PostsControllerTest < ActionController::TestCase
   
   context "edit action" do
     should "render edit template" do
-      get :edit, :id => @post.id
+      get :edit, :id => Post.first.to_param
       assert_redirected_to signin_url
     end
   end
@@ -54,13 +54,13 @@ class PostsControllerTest < ActionController::TestCase
   context "update action" do
      should "render edit template when model is invalid" do
        Post.any_instance.stubs(:valid?).returns(false)
-       put :update, :id => @post.id
+       put :update, :id => Post.first.to_param
        assert_redirected_to signin_url
      end
    
      should "redirect when model is valid" do
        Post.any_instance.stubs(:valid?).returns(true)
-       put :update, :id => @post.id
+       put :update, :id => Post.first.to_param
        assert_redirected_to signin_url
      end
    end
@@ -68,7 +68,7 @@ class PostsControllerTest < ActionController::TestCase
   context "destroy action" do
     should "destroy model and redirect to index action" do
       post = Post.first
-      delete :destroy, :id => post.id
+      delete :destroy, :id => post.to_param
       assert_redirected_to signin_url
     end
   end
@@ -86,10 +86,8 @@ class PostsControllerTest < ActionController::TestCase
   context "show action for admin" do
     setup do
       authenticate
-      @post = Factory.create(:post)
-      get :show, :id => @post.id
+      get :show, :id => @post.to_param
     end
-
     should "render show template" do
       assert_template 'show'
     end
@@ -109,7 +107,6 @@ class PostsControllerTest < ActionController::TestCase
     setup do
       authenticate
     end
-
     should "render new template when model is invalid" do
       Post.any_instance.stubs(:valid?).returns(false)
       post :create
@@ -118,14 +115,14 @@ class PostsControllerTest < ActionController::TestCase
     
     should "redirect when model is valid" do
       post :create, :post => TestData::Post.valid_options
-      assert_redirected_to post_url(assigns(:post).id)
+      assert_redirected_to post_url(assigns(:post))
     end
   end
   
   context "edit action for admin" do
     setup do
       authenticate
-      get :edit, :id => @post.id
+      get :edit, :id => Post.first.to_param
     end
     should "render edit template" do
       assert_template 'edit'
@@ -136,25 +133,24 @@ class PostsControllerTest < ActionController::TestCase
     setup do
       authenticate
     end
-
-    should "render edit template when model is invalid" do
-      Post.any_instance.stubs(:valid?).returns(false)
-      put :update, :id => @post.id
-      assert_template 'edit'
-    end
+     should "render edit template when model is invalid" do
+       Post.any_instance.stubs(:valid?).returns(false)
+       put :update, :id => Post.first.to_param
+       assert_template 'edit'
+     end
    
-    should "redirect when model is valid" do
-      Post.any_instance.stubs(:valid?).returns(true)
-      put :update, :id => @post.id
-      assert_redirected_to post_url(assigns(:post))
-    end
-  end
+     should "redirect when model is valid" do
+       Post.any_instance.stubs(:valid?).returns(true)
+       put :update, :id => Post.first.to_param
+       assert_redirected_to post_url(assigns(:post))
+     end
+   end
      
   context "destroy action for admin" do
     setup do
       authenticate
       @post = Post.first
-      delete :destroy, :id => @post.id
+      delete :destroy, :id => @post.to_param
     end
     should "destroy model and redirect to index action" do
       assert_redirected_to posts_url

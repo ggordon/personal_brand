@@ -1,20 +1,19 @@
-ActionController::Routing::Routes.draw do |map|
+PersonalBrand::Application.routes.draw do
 
-  map.root      :controller => :blog
-  
-  map.resources :posts
-  
-  map.resource  :resume, :only => [:show]
-  
-  map.resource  :portfolio, :only => [:show]
-  map.resources :portfolio_items, :except => [:index]
-  
-  map.with_options(:controller => :pages, :action => :show) do |pages|
-    pages.connect '/about', :id => 'about'
-    pages.connect '/pages/:id'
+  root :to => 'blog#index'
+
+  resources :posts
+  resource  :resume,          :only => [:show]
+  resource  :portfolio,       :only => [:show] 
+  resources :portfolio_items, :except => [:index]
+
+  controller :pages do
+    match '/about', :to => :show, :id => 'about'
+    match 'pages/:id', :to => :show
   end
 
-  map.signin '/signin',   :controller => :sessions, :action => :new
-  map.signout '/signout', :controller => :sessions, :action => :destroy
-  map.resources :sessions, :only => 'create'
+  match '/signin',  :to => 'sessions#new',     :as => 'signin'
+  match '/signout', :to => 'sessions#destroy', :as => 'signout'
+  resources :sessions, :only => [:create]
+
 end

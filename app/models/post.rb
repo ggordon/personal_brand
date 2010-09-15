@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   
 #  has_permalink :title
  
-  acts_as_textiled :body
+  #acts_as_textiled :body
   
   def to_param
     slug

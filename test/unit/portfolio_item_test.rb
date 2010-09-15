@@ -10,13 +10,13 @@ class PortfolioItemTest < ActiveSupport::TestCase
   should "not be valid w/o title" do
     portfolio_item = PortfolioItem.new(TestData::PortfolioItem.valid_options.merge(:title => nil))
     assert ! portfolio_item.valid?   
-    assert_match(/blank/, portfolio_item.errors[:title]) 
+    assert_equal ["can't be blank"], portfolio_item.errors[:title]
   end
 
   should "not be valid w/o body" do
     portfolio_item = PortfolioItem.new(TestData::PortfolioItem.valid_options.merge(:body => nil))
     assert ! portfolio_item.valid?   
-    assert_match(/blank/, portfolio_item.errors[:body]) 
+    assert_equal ["can't be blank"], portfolio_item.errors[:body] 
   end
   
 end

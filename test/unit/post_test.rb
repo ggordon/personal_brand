@@ -10,13 +10,13 @@ class PostTest < ActiveSupport::TestCase
   should "not be valid w/o title" do
     post = Post.new(TestData::Post.valid_options.merge(:title => nil))
     assert ! post.valid?   
-    assert_match(/blank/, post.errors[:title]) 
+    assert_equal ["can't be blank"], post.errors[:title]
   end
 
   should "not be valid w/o body" do
     post = Post.new(TestData::Post.valid_options.merge(:body => nil))
     assert ! post.valid?   
-    assert_match(/blank/, post.errors[:body]) 
+    assert_equal ["can't be blank"], post.errors[:body] 
   end
   
 end

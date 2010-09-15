@@ -59,9 +59,10 @@ class PostsControllerTest < ActionController::TestCase
      end
    
      should "redirect when model is valid" do
+       authenticate
        Post.any_instance.stubs(:valid?).returns(true)
        put :update, :id => Post.first.to_param
-       assert_redirected_to signin_url
+       assert_redirected_to posts_url
      end
    end
      
@@ -142,7 +143,7 @@ class PostsControllerTest < ActionController::TestCase
      should "redirect when model is valid" do
        Post.any_instance.stubs(:valid?).returns(true)
        put :update, :id => Post.first.to_param
-       assert_redirected_to post_url(assigns(:post))
+       assert_redirected_to posts_url
      end
    end
      

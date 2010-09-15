@@ -1,7 +1,7 @@
-- semantic_form_for @post, :html => { :class => 'x-ujs', :id => 'post_form' } do |post_form|
-  = post_form.error_messages
-  - post_form.inputs :name => "post" do
-    = post_form.input :title
-    = post_form.input :body
-  - post_form.buttons do
-    = post_form.submit "Create"
+- semantic_form_for :post, @post, :html => { :class => 'x-ujs', :id => 'post_form'} do |form|
+  = form.error_messages
+  - form.inputs do
+    = form.input :title
+    = form.input :body
+  - form.buttons do
+    = form.commit_button

@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
       flash[:notice] = "Successfully updated post."
-      redirect_to @post
+      redirect_to posts_url
     else
       render :action => 'edit'
     end

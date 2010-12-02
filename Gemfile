@@ -1,0 +1,28 @@
+source 'http://rubygems.org'
+
+gem 'rails',        '~>3.0.0'
+gem 'pg',           '~>0.9.0'
+gem 'haml',         '~>3.0.18'
+gem 'haml-rails',   '~>0.2'
+gem 'compass',      '~>0.10.5'
+gem 'formtastic',   '~>1.1.0'
+
+group :development, :test do
+  gem 'test-unit',          '~>2.1.1', :require => 'test/unit'
+  gem 'shoulda',            '~>2.11.3'
+  gem 'mocha',              '~>0.9.8'
+  gem 'cucumber',           '~>0.8.5'
+  gem 'cucumber-rails',     '~>0.3.2'
+  gem 'webrat',             '~>0.7.1'
+  gem 'factory_girl',       '~>1.3.2'
+  gem 'factory_girl_rails', '~>1.0'
+  gem 'ruby-debug'
+  gem 'rails3-generators'
+  gem 'annotate'
+  gem 'wirble'
+  gem 'hirb'
+  gem 'interactive_editor'
+  gem 'awesome_print', :require => 'ap'
+  gem 'rails_code_qa'
+  gem 'rails_best_practices'
+end

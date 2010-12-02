@@ -17,7 +17,7 @@ config.action_mailer.delivery_method = :test
 
 config.gem 'test-unit',               :lib     => 'test/unit'
 #config.gem 'mocha',                   :version => '>=0.9.7'
-config.gem 'shoulda',      :lib     => 'shoulda'
+config.gem 'thoughtbot-shoulda',      :lib     => 'shoulda'
 
 config.gem 'cucumber',    :lib => false,        :version => '>=0.3.98' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
 config.gem 'webrat',      :lib => false,        :version => '>=0.5.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))

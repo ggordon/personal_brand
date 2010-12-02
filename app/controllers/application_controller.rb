@@ -5,9 +5,6 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
-  
   before_filter { |page| page.set_selected_nav_tab :blog }
   
   def set_selected_nav_tab(tabname)
@@ -16,7 +13,7 @@ class ApplicationController < ActionController::Base
   
   def admin_required
     unless admin? 
-      flash[:error] = "Only an admin is required to access that."
+      flash[:error] = "Only an admin is required to acces that."
       redirect_to signin_path
       return false
     end
